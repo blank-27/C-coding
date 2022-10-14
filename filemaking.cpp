@@ -16,6 +16,23 @@ using namespace std;
 //#define MOD (ll)1000000007
 //#define MOD (ll)998244353
 
+void toh(int n, char from, char to, char aux){
+    if(n==1)
+	{   // single disc left
+        cout<<"Transfer the disc 1 from "<<
+        from<<" to "<<to; 
+        cout<<endl;
+	}
+	else
+	{
+		toh(n-1,from,aux,to);
+        cout<<"Transfer the disc "<<
+        n<<" from "<<from<<" to "<<to;
+        cout<<endl;
+		toh(n-1,aux,to,from);
+	}
+}
+
 int main()
 {
     jaldi;
