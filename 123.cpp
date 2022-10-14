@@ -6,11 +6,15 @@
 using namespace std ;
 int n;
 
+// swap function
+
 void swp(int &a, int &b){
 int temp=a;
 a=b;
 b=temp;
 }
+
+// selection sort - Time Complexity O(N^2)
 
 void SelectionSort(int arr[]) {
 
