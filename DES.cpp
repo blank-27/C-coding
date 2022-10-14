@@ -3,7 +3,22 @@ using namespace std;
 typedef long long ll;
 #define pb push_back
 
+void BubbleSort(int arr[]) {
 
+    int flag;           // flag is used to check whether any swap takes place in current iteration or not
+    for(int i=0;i<n-1;i++) {
+        flag=0 ;
+        for(int j=0;j<n-1-i;j++) {
+            if(arr[j]>arr[j+1]) {       
+                // previous element greater than current element thus breaking rule of sorted array so we swap it
+                swp(arr[j],arr[j+1]);
+                flag=1;         
+            }
+        }
+        if(!flag) break;        // means no swapping takes place in this iteration, so the array is now sorted 
+    }
+    
+}
 
 int main()
 {   
