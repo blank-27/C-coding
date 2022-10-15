@@ -1,9 +1,16 @@
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
 
 int wt[10][10];
 map<int,int> m;
 
+void solve() {
+	int x,y;
+	x = 10;
+	y = 9;
+	cout<<x<<y;
+}
 
 void printpath(vector<int>& path)
 {
