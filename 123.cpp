@@ -14,6 +14,62 @@ a=b;
 b=temp;
 }
 
+void merge(int arr[],int l,int r)
+{
+    int mid=(l+r)/2;
+    int n1=mid-l+1,n2=r-mid,ind1=0,ind2=0,ind=l;
+    int lft[n1],rgt[n2];
+    for(int i=l;i<=r;i++)
+    {
+        if(i-l<n1){
+        	lft[ind1]=arr[i];
+        	ind1++;
+        }
+        else{
+        	rgt[ind2]=arr[i];
+        	ind2++;
+        }
+        
+    }
+    ind1=ind2=0;
+    while(1)
+    {
+        if(ind1<n1 && ind2<n2){
+        	if(lft[ind1]<=rgt[ind2]){
+        		arr[ind]=lft[ind1];
+        		ind1++;
+        	}
+        	else{
+        		arr[ind]=rgt[ind2];
+        		ind2++;
+        	}
+        	ind++;
+        }
+        else if(ind1<n1){
+           arr[ind]=lft[ind1];
+           ind++;
+           ind1++;
+        }
+        else if(ind2<n2){
+           arr[ind]=rgt[ind2];
+           ind++;
+           ind2++;
+        }
+        else{
+         	break;
+        }
+    }
+}
+ 
+void merge_sort(int arr[],int l,int r)
+{
+	if(l>=r)	return;
+	int mid=(l+r)/2;
+	merge_sort(arr,l,mid);
+	merge_sort(arr,mid+1,r);
+	merge(arr,l,r);
+}
+
 // selection sort - Time Complexity O(N^2)
 
 void SelectionSort(int arr[]) {
