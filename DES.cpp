@@ -20,6 +20,22 @@ void BubbleSort(int arr[]) {
     
 }
 
+int maximum_flow(){
+    int ans=0,temp,now,pre;
+    vector<int> v(n+1);
+    while(temp=bfs(v)){
+        now=sink;
+        ans+=temp;
+        while(now!=src){
+            pre=v[now];
+            flow_cap[pre][now]-=temp;
+            flow_cap[now][pre]+=temp;
+            now=pre;
+        }
+    }
+    return ans;
+}
+
 int main()
 {   
     string key,msg;
