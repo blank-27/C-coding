@@ -16,6 +16,28 @@ using namespace std;
 //#define MOD (ll)1000000007
 //#define MOD (ll)998244353
 
+void bucket_sort(float a[],int n) 
+{ 
+    vector<float> arr[n+1]; 
+  
+    for(int i=0;i<n;i++)
+     { 
+        int bucket=n*a[i]; 
+        arr[bucket].push_back(a[i]); 
+    } 
+
+    for (int i=0;i<n;i++)  sort(arr[i].begin(),arr[i].end()); 
+      
+    int ind=0; 
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<arr[i].size();j++) 
+        {
+            a[ind++]=arr[i][j]; 
+        }      
+    }         
+}
+
 void toh(int n, char from, char to, char aux){
     if(n==1)
 	{   // single disc left
