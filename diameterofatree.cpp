@@ -16,6 +16,7 @@ using namespace std;
 #define test ll t; cin>>t; while(t--)
 #define modInv(n) po(n,mod-2)%mod
 #define ncr(n,r) (((fact[n]*modInv(fact[r]))%mod)*modInv(fact[n-r]))%mod
+#define fo(i,n) for(i=1;i<n;i++)
 // use endl for interactive problems
 
 ll po(ll a, ll b)
@@ -65,7 +66,8 @@ int main()
     {
        cin>>n;
        ll u,v;
-       for(int i=1; i<=n-1; i++)
+       int i;
+       fo(i,n)
        {
            cin>>u>>v;
            adj[u].pb(v);

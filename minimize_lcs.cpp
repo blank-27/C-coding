@@ -115,43 +115,26 @@ void google(){
     p++;
     
 }
-ll match=0;
-void dfs(vector<ll> adj[],vector<vector<ll> > &dp,ll cur,ll par,vector<ll> &used)
-{
-    for(auto i:adj[cur])
-    {
-        if(i!=par){
-            dfs(adj,dp,i,cur,used);
-            // dp[cur][0]= max(dp[i][0],dp[i][1]);
-            // dp[cur][1]+=dp[i][0]+1;
-            
-        }
-            if(!used[i] && !used[cur] && i!=par){
-                used[i]=1;
-                used[cur]=1;
-                match++;
-            }
-        
-    }
-}
 void solve(){
     ll i,j,k,m,n,x,y,z,mi,mx,count=0,ans=0,sum=0,ct=0;
     mi=inf;mx=inf;
     string str="",s="",aa="";
     cin>>n;
-    vector<ll> adj[n+1];
-    fo(i,n-1)
+    cin>>s>>str;
+    sort(s.begin(),s.end());
+    sort(str.begin(),str.end());
+    reverse(str.begin(),str.end());
+    ll arr[256][2]={};
+    for(int i=0;i<n;i++)
     {
-        cin>>x>>y;
-        adj[x].pb(y);
-        adj[y].pb(x);
+        arr[s[i]][0]++;
+        arr[str[i]][1]++;
     }
-    vector<vector<ll> > dp(n+1,vector<ll> (2,0) );
-    vector<ll> used(n+1,0);
-    dfs(adj,dp,1ll,-1ll,used);
-    // cout<<dp[1][0]+dp[1][1]<<endl;
-    cout<<match;
-    
+    ans=0;
+    for(char i='a';i<='z';i++){
+        ans = max(ans,min(arr[i][0],arr[i][1]));
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
@@ -162,10 +145,10 @@ int main() {
     //     freopen("output.txt", "w", stdout);
     // #endif
     int t = 1;
-    // cin>>t;
+    cin>>t;
     while(t--) {
         solve();
        // google();
     }
-}\
+}
 
