@@ -1,25 +1,25 @@
 #include<bits/stdc++.h>
 #define max 1000001
 using namespace std;
-int smallPrime[max]={};
+int isPrime[max]={};
 vector <vector<int> > factor (max);
 
 void seive(){
     for(int i=1;i<max;i++)
-    smallPrime[i]=i;
+    isPrime[i]=i;
     for(int i=1;i<max;i++)
     {
         if(i%2==0)
-        smallPrime[i]=2;
+        isPrime[i]=2;
     }
     for(int i = 3;i*i<max;i++)
     {
-        if(smallPrime[i]==i)
+        if(isPrime[i]==i)
         {
             for(int j=i*i;j<max;j+=i)
             {
-                if(smallPrime[j]==j)
-                smallPrime[j]=i;
+                if(isPrime[j]==j)
+                isPrime[j]=i;
             }
         }
     }
@@ -32,7 +32,7 @@ void primeFactor(){
         int x = i;
         while(x!=1)
         {
-            int temp = smallPrime[x];
+            int temp = isPrime[x];
             if(x%temp==0)
             {
                 factor[i].push_back(temp);
