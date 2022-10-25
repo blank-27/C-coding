@@ -2,22 +2,33 @@
 using namespace std;
 typedef long long ll;
 #define pb push_back
+#define endl '\n'
 
-void BubbleSort(int arr[]) {
-
+void BubbleSort(int arr[], int n) {
     int flag;           // flag is used to check whether any swap takes place in current iteration or not
-    for(int i=0;i<n-1;i++) {
-        flag=0 ;
-        for(int j=0;j<n-1-i;j++) {
-            if(arr[j]>arr[j+1]) {       
+    for (int i = 0; i < n - 1; i++) {
+        flag = 0;
+        for (int j = 0; j < n - 1 - i; j++) {
+            if(arr[j] > arr[j + 1]) {       
                 // previous element greater than current element thus breaking rule of sorted array so we swap it
-                swp(arr[j],arr[j+1]);
-                flag=1;         
+                swap(arr[j], arr[j + 1]);
+                flag = 1;         
             }
         }
-        if(!flag) break;        // means no swapping takes place in this iteration, so the array is now sorted 
+        if (!flag) break;        // means no swapping takes place in this iteration, so the array is now sorted 
     }
-    
+}
+
+void SelectionSort(int arr[], int n) {
+    for (int i = 0; i < n; ++i) {
+    	int minIndex = i;
+	for (int j = i + 1; j < n; ++j) {
+	    if (arr[minIndex] > arr[j]) {
+	    	minIndex = j;
+	    }
+	}
+	swap(arr[i], arr[minIndex]);
+    }
 }
 
 int maximum_flow(){
