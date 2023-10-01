@@ -9,8 +9,9 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int n=nums.size();
-        for(int i = 0;i < n/2;i++) {
+        for(int i = 0;i < n;i++) {
             int x = nums[i];
+            if(target == x) return i;
         }
     }
 };
