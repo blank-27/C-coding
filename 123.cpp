@@ -7,7 +7,7 @@ using namespace std ;
 int n;
 
 // swap function
-
+//swapping the numbers inplace
 void swp(int &a, int &b){
 int temp=a;
 a=b;
