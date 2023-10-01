@@ -14,6 +14,7 @@ public:
             int x = nums[i];
             if(target == x) return i;
             if( x > target) n = l;
+            else i = l
         }
     }
 };
